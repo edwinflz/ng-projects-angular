@@ -15,6 +15,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@store/*": ["src/app/store/*"],
+      "@core/*": ["src/app/core/*"],
+      "@environment": ["src/environments/environment.ts"],
+      "@utils/*": ["src/app/utils/*"],
+      "@header/*": ["src/app/components/header/*"],
+      "@forms/*": ["src/app/pages/forms/*"],
+      "@portfolio/*": ["src/app/pages/portfolio/*"]
+    }
   }
 }

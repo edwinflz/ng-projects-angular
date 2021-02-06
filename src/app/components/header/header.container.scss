@@ -1,0 +1,34 @@
+@use "abstracts/mixins" as mixin;
+
+.navbar {
+  font-family: var(--bold-font);
+  background-color: var(--white);
+  height: 70px;
+  color: var(--blue);
+  @include mixin.general-box-shadow(
+    0px,
+    4px,
+    10px,
+    0px,
+    var(--brown-1_rgb),
+    0.1
+  );
+  .nav-link {
+    color: var(--blue);
+    text-transform: uppercase;
+    @include mixin.animate(0.3, linear, color);
+    cursor: pointer;
+    &:hover {
+      color: var(--purple);
+    }
+  }
+  .navbar-nav {
+    margin-left: auto;
+  }
+  .navbar-collapse {
+    &.show {
+      background: var(--gray-2);
+      padding: 5px;
+    }
+  }
+}

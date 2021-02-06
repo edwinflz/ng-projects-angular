@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 text-center">
+      <div class="title">Formularios Reactivos</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="sub-title">Form Control</div>
+      <div class="mb-3 mt-3">
+        <input type="text" class="form-control" [formControl]="controlField" />
+        <div class="form-text">{{controlField.value}}</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <code>
+          <pre>{{controlField | json}}</pre>
+        </code>
+      </div>
+    </div>
+  </div>
+</div>
