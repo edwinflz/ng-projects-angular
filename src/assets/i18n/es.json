@@ -1,0 +1,45 @@
+{
+  "HEADER": {
+    "TITLE-POKEMON": "PokeDex"
+  },
+  "PORTFOLIO": {
+    "MY-SKILLS": "MIS HABILIDADES"
+  },
+  "AUTH": {
+    "GREAT": "Genial",
+    "AWAIT-MOMENT": "Espera un momento...",
+    "WELCOME": "Bienvenido",
+    "ACTION-REGISTER": "Crea una cuenta!",
+    "ACTION-LOGIN": "¿Ya estás registrado?",
+    "LOGIN": {
+      "TITLE": "Vamos a iniciar sesión!",
+      "SAVE": "Ingresar"
+    },
+    "REGISTER": {
+      "TITLE": "No esperes más, crea una cuenta ahora!",
+      "SAVE": "Crear cuenta"
+    }
+  },
+  "FORM": {
+    "EMAIL": "Email",
+    "PASSWORD": "Contraseña",
+    "REPEAT-PASSWORD": "Repetir contraseña",
+    "TEXT-NAME": "Nombre",
+    "TEXT-PHOTO": "Cambiar foto",
+    "SELECT-MUNICIPALITY": "Ubicación",
+    "SELECT-CATEGORY": "Categorias",
+    "SELECT-OPTION": "Escoje una opción",
+    "VALIDATION": {
+      "REQUIRED": "Campo requerido!.",
+      "EMAIL": "Digite un email correcto!.",
+      "PASSWORD-MATCH": "La contraseña no coincide.",
+      "MINLENGTH": "Se requiere {{min}} como mínimo, actualmente hay {{currentMin}}.",
+      "PATTERN": "Digite un campo válido Ej: {{example}}",
+      "MIN": "Se requiere como minimo 1 cantidad",
+      "ONLY-IMAGE": "Solo se permiten imagenes",
+      "LIMIT-IMAGE": "El limite de peso de imagen es de 2 mb"
+    },
+    "SAVE": "Guardar",
+    "UPDATE": "Actualizar"
+  }
+}

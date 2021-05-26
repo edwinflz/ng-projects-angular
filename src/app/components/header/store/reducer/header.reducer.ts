@@ -17,6 +17,7 @@ const reducer = createReducer(
     return {
       ...headerStyles,
       title: selection.title,
+      type: selection.type
     };
   })
 );

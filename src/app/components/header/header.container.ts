@@ -5,7 +5,11 @@ import { filter } from 'rxjs/operators';
 
 import { IS_BROWSER } from '@app/config/tokens/app.tokens';
 
-import { Header, HeaderType } from '@header/entities/header.interface';
+import {
+  Header,
+  HeaderContentType,
+  HeaderType,
+} from '@header/entities/header.interface';
 import { HeaderStore } from '@header/header.store';
 
 @Component({
@@ -47,25 +51,8 @@ export class HeaderContainer implements AfterViewInit {
     return this.headerStore.headerStyle$;
   }
 
-  get headerTypeNone(): HeaderType {
-    return HeaderType.NONE;
-  }
-
-  get headerTypeBanner(): HeaderType {
-    return HeaderType.BANNER;
-  }
-
-  get headerTypeBasic(): HeaderType {
-    return HeaderType.BASIC;
-  }
-
-  public headerType(header: Header): HeaderType {
-    if (!!header.classType && header.classType === this.headerTypeNone)
-      return HeaderType.NONE;
-    else if (!!header.classType && header.classType === this.headerTypeBanner)
-      return HeaderType.BANNER;
-    else if (!!header.classType && header.classType === this.headerTypeBasic)
-      return HeaderType.BASIC;
+  public headerContentPortfolio(type: string): boolean {
+    return type === HeaderContentType.PORTFOLIO;
   }
 
 }

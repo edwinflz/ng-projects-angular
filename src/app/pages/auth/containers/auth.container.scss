@@ -1,0 +1,25 @@
+@use "abstracts/mixins" as mixin;
+
+.card {
+  @include mixin.general-box-shadow(
+    0px,
+    6px,
+    10px,
+    0px,
+    var(--gray-1_rgb),
+    0.16
+  );
+  font-family: var(--bold-font);
+  padding: 15px;
+  border-radius: var(--border-radius-12);
+  border: none;
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+  .row {
+    height: 100%;
+    align-items: center;
+  }
+}

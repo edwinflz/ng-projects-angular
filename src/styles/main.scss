@@ -28,14 +28,14 @@ body {
 .btn-primary {
   @include mixin.btn-primary();
   &:hover {
-    background-color: var(--red-2);
+    background-color: var(--pink);
   }
 }
 
 .btn-secondary {
-  @include mixin.btn-primary(var(--blue-1));
+  @include mixin.btn-primary(var(--blue));
   &:hover {
-    background-color: var(--gray-2);
+    background-color: var(--blue-2);
   }
 }
 

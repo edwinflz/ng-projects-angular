@@ -1,0 +1,74 @@
+<p class="text-center mt-0 font-14 text-info">
+    {{ "AUTH.LOGIN.TITLE" | transloco }}
+  </p>
+  
+  <div [formGroup]="form">
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">
+        {{ "FORM.EMAIL" | transloco }}
+      </label>
+      <div class="col-sm-10">
+        <input
+          formControlName="email"
+          [class.is-valid]="isValid(emailField)"
+          [class.is-invalid]="isInValid(emailField)"
+          type="email"
+          class="form-control"
+          id="email"
+        />
+        <div class="invalid-feedback" [class.is-invalid]="isInValid(emailField)">
+          <span *ngIf="hasError('required', emailField)">
+            {{ "FORM.VALIDATION.REQUIRED" | transloco }}
+          </span>
+          <span *ngIf="hasError('email', emailField)">
+            {{ "FORM.VALIDATION.EMAIL" | transloco }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="password" class="col-sm-2 col-form-label">
+        {{ "FORM.PASSWORD" | transloco }}
+      </label>
+      <div class="col-sm-10">
+        <div class="input-group mb-2">
+          <input
+            formControlName="password"
+            [class.is-valid]="isValid(passwordField)"
+            [class.is-invalid]="isInValid(passwordField)"
+            [type]="isFieldText"
+            class="form-control"
+            id="password"
+          />
+          <div
+            class="invalid-feedback"
+            [class.is-invalid]="isInValid(passwordField)">
+            <span *ngIf="hasError('required', passwordField)">
+              {{ "FORM.VALIDATION.REQUIRED" | transloco }}
+            </span>
+          </div>
+          <div
+            class="input-group-prepend"
+            [class.d-none]="passwordField.errors"
+            (click)="toggleTypeInput()">
+            <div class="input-group-text">
+              <i
+                class="bx bx-tada-hover"
+                [class.bxs-lock-open]="!fieldTextType"
+                [class.bxs-lock]="fieldTextType">
+              </i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary m-auto"
+        [disabled]="formDisabled"
+        (click)="login()">
+        <i class="bx bx-refresh bx-spin" *ngIf="isLoading"></i>
+        {{ "AUTH.LOGIN.SAVE" | transloco }}
+      </button>
+    </div>
+  </div>
+  

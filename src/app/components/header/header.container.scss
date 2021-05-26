@@ -1,4 +1,61 @@
 @use "abstracts/mixins" as mixin;
+@use "abstracts/breakpoints" as breakpoint;
+
+.header-none {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  &.admin {
+    position: sticky;
+    height: auto;
+    min-height: 50px;
+  }
+  &.auth {
+    display: none;
+  }
+  .header-background {
+    background-image: url("/assets/img/banner-programming.jpg");
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+    filter: brightness(50%);
+  }
+  .header-content {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-family: var(--bold-font);
+    padding-left: 50px;
+    strong {
+      color: var(--purple);
+    }
+  }
+}
+
+.header-basic {
+  width: 100%;
+  height: 60px;
+  font-family: var(--bold-font);
+  background-color: var(--red);
+  color: var(--white);
+  .container-fluid {
+    height: 100%;
+    .row {
+      height: 100%;
+      align-items: center;
+    }
+  }
+}
 
 .navbar {
   font-family: var(--bold-font);
@@ -29,6 +86,17 @@
     &.show {
       background: var(--gray-2);
       padding: 5px;
+    }
+  }
+}
+
+@media (max-width: breakpoint.$break-small-tablet) {
+  .header-none {
+    min-height: 250px;
+    .header-content {
+      h1 {
+        font-size: var(--f-16);
+      }
     }
   }
 }

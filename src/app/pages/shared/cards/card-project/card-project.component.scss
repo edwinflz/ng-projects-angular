@@ -1,0 +1,69 @@
+@use "abstracts/mixins" as mixin;
+@use "abstracts/breakpoints" as breakpoint;
+
+.project {
+  border-radius: var(--border-radius-12);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--gray-8);
+  .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .project-detail {
+    position: relative;
+    margin: 20px 40px;
+    margin-top: -40px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--white);
+    .project-title {
+      font-family: var(--bold-font);
+      font-size: var(--f-18);
+    }
+    .project-description {
+      text-align: left;
+      font-family: var(--normal-font);
+      font-size: var(--f-16);
+    }
+    .project-actions {
+      @include mixin.flex(center, space-between);
+      .project-url {
+        border: 1px solid;
+        padding: 5px 20px;
+        text-decoration: none;
+        color: var(--blue-3);
+        border-radius: var(--border-radius-4);
+        @include mixin.animate();
+        &.repository {
+          color: var(--red);
+          &:hover {
+            background-color: var(--red);
+            color: var(--white);
+          }
+        }
+        &:hover {
+          background-color: var(--blue-3);
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: breakpoint.$break-tablet) {
+  .project {
+    .project-detail {
+      .project-description {
+        font-size: var(--f-14);
+      }
+      .project-actions {
+        @include mixin.flex(stretch, space-between, column);
+        .project-url {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

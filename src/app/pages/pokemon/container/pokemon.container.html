@@ -1,0 +1,12 @@
+<div class="container mt-4 mb-4">
+  <div class="row">
+    <div class="col-lg-2" *ngFor="let pokemon of (pokemonList$ | async)">
+      <app-card-pokemon
+        [id]="pokemon.id"
+        [name]="pokemon.name"
+        [type]="pokemon.types[0].type.name"
+        [image]="pokemon.sprites.other.dream_world.front_default"
+      ></app-card-pokemon>
+    </div>
+  </div>
+</div>

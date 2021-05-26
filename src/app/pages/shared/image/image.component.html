@@ -1,0 +1,14 @@
+<div class="content-loading" [@imageAnimation]="contentCtrl">
+  <div class="thumb-overlay" *ngIf="!destroy">
+    <img [src]="imgLoading" />
+  </div>
+</div>
+
+<img
+  loading="lazy"
+  class="img-fluid {{ type }}"
+  [class.rounded-circle]="rounded"
+  [src]="url"
+  (load)="loadImage()"
+  (error)="errorHandler()"
+  [@imageAnimation]="imageCtrl"/>

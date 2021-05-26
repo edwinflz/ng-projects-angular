@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Landing Restaurante Bootstrap",
+    "description": "Maquetación de página principal de un restaurante realizado en bootstrap 4.",
+    "img": "assets/img/project-restaurant.jpg",
+    "url": "https://edwinflz.github.io/projects/src/restaurante-bootstrap/",
+    "github": "https://github.com/edwinflz/projects/tree/master/src/restaurante-bootstrap/"
+  },
+  {
+    "title": "Juego Javascript",
+    "description": "Creación de un Juego de Memorización de patrones realizado en Javascript, uso de EcmaScript6.",
+    "img": "assets/img/Proyecto-Fundamentos-Javascript.webp",
+    "url": "https://edwinflz.github.io/projects/src/juego-javascript/",
+    "github": "https://github.com/edwinflz/projects/tree/master/src/juego-javascript"
+  },
+  {
+    "title": "Apps Angular",
+    "description": "Apps en Angular aplicando conceptos, buenas prácticas, técnicas de performance y NGRX.",
+    "img": "assets/img/angular-aplicaciones.jpg",
+    "url": "https://edwinflz.github.io/projects/projects.html",
+    "github": "https://github.com/edwinflz/ng-projects-angular"
+  }
+]

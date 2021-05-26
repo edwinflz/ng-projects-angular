@@ -1,0 +1,12 @@
+<div class="card-pokemon {{ type }}">
+  <div class="img-pokemon">
+    <app-image [url]="image" [rounded]="false" [type]="typeImage"></app-image>
+  </div>
+  <div class="info-pokemon">
+    <span class="number-pokemon">#{{ id }}</span>
+    <h3 class="name-pokemon">{{ name }}</h3>
+    <small class="type-pokemon">
+      Type: <span>{{ type }}</span>
+    </small>
+  </div>
+</div>

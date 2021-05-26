@@ -98,7 +98,7 @@
   }
 }
 
-@mixin btn-primary($color: var(--red-1)) {
+@mixin btn-primary($color: var(--red)) {
   font-family: var(--bold-font);
   background-color: $color;
   box-shadow: none;

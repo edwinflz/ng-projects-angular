@@ -23,8 +23,13 @@
       "@environment": ["src/environments/environment.ts"],
       "@utils/*": ["src/app/utils/*"],
       "@header/*": ["src/app/components/header/*"],
+      "@shared/*": ["src/app/pages/shared/*"],
       "@forms/*": ["src/app/pages/forms/*"],
-      "@portfolio/*": ["src/app/pages/portfolio/*"]
+      "@portfolio/*": ["src/app/pages/portfolio/*"],
+      "@pokemon/*": ["src/app/pages/pokemon/*"],
+      "@admin/*": ["src/app/pages/admin/*"],
+      "@english/*": ["src/app/pages/admin/english/*"],
+      "@auth/*": ["src/app/pages/auth/*"],
     }
   }
 }

@@ -1,0 +1,17 @@
+<article class="project mb-2">
+  <figure class="project-image-wrapper">
+    <img class="project-image" [src]="project.img" width="500" />
+  </figure>
+  <div class="project-detail">
+    <h3 class="project-title">{{ project.title }}</h3>
+    <p class="project-description">
+      {{ project.description }}
+    </p>
+    <div class="project-actions">
+      <a class="project-url" [href]="project.url" target="_blank">Ver Proyecto</a>
+      <a class="project-url repository" target="_blank" [href]="project.github">
+        <i class="bx bxl-github"></i>
+      </a>
+    </div>
+  </div>
+</article>

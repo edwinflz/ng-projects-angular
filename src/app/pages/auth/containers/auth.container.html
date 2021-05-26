@@ -1,0 +1,40 @@
+<div class="container pb-2">
+  <div class="row">
+    <div class="col-12 col-md-12 col-lg-8 offset-lg-2">
+      <div class="card">
+        <h1 class="text-center">{{ "AUTH.WELCOME" | transloco }}</h1>
+        <div class="alert alert-info" *ngIf="(isLoading$ | async)">
+          {{ "AUTH.AWAIT-MOMENT" | transloco }}
+        </div>
+        <ng-container *ngIf="isLogin; else appFormRegister">
+          <app-form-login
+            (sendUser)="login($event)"
+            [isLoading]="(isLoading$ | async)"
+          ></app-form-login>
+        </ng-container>
+        <ng-template #appFormRegister>
+          <app-form-register
+            (sendUser)="register($event)"
+            [isLoading]="(isLoading$ | async)"
+          ></app-form-register>
+        </ng-template>
+        <div class="row mt-2">
+          <div class="col-12 col-lg-12 text-center">
+            <button
+              type="button"
+              class="btn btn-outline-light text-info"
+              (click)="toggleLogin()"
+            >
+              <ng-container *ngIf="isLogin; else actionLogin">
+                {{ "AUTH.ACTION-REGISTER" | transloco }}
+              </ng-container>
+              <ng-template #actionLogin>
+                {{ "AUTH.ACTION-LOGIN" | transloco }}
+              </ng-template>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

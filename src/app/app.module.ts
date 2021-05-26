@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InjectionToken, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -17,6 +18,7 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { AppContainer } from '@app/app.container';
 import { AppStore } from '@app/app.store';
 import { globalReducers } from '@app/store/reducers';
+import { ErrorInterceptorService } from '@core/services/error-interceptor.service';
 
 export const REDUCER_TOKEN = new InjectionToken('Registered Reducers');
 
@@ -26,6 +28,7 @@ export const REDUCER_TOKEN = new InjectionToken('Registered Reducers');
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     AppInitModule,
@@ -49,6 +52,11 @@ export const REDUCER_TOKEN = new InjectionToken('Registered Reducers');
     {
       provide: REDUCER_TOKEN,
       useValue: globalReducers,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptorService,
+      multi: true
     },
   ],
   bootstrap: [AppContainer]

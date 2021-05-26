@@ -1,1 +1,54 @@
-<p>portfolio works!</p>
+<ng-container *ngIf="!(portfolioLoading$ | async)">
+  <div class="container mb-5 pb-5">
+    <div class="row mt-3 pt-3">
+      <div class="col-12 text-center">
+        <h1 class="title">{{'PORTFOLIO.MY-SKILLS' | transloco}}</h1>
+      </div>
+    </div>
+  
+    <div class="row mt-4">
+      <div class="col-lg-4 col-md-4 col-12 mb-2">
+        <div class="progress-circle progress-purple-90">
+          <div class="overlay">90%</div>
+        </div>
+        <div class="subtitle text-center">HTML 5 y CSS 3</div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-12 mb-2">
+        <div class="progress-circle progress-green-90">
+          <div class="overlay">90%</div>
+        </div>
+        <div class="subtitle text-center">JAVASCRIPT</div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-12 mb-2">
+        <div class="progress-circle progress-red-90">
+          <div class="overlay">90%</div>
+        </div>
+        <div class="subtitle text-center">ANGULAR</div>
+      </div>
+    </div>
+  
+    <div class="row pt-5 mt-5">
+      <div class="col-12 text-center">
+        <h1 class="title">MIS PROYECTOS</h1>
+      </div>
+    </div>
+  
+    <div class="row mt-2">
+      <div class="col-lg-4" *ngFor="let project of projects$ | async">
+        <app-card-project [project]="project"></app-card-project>
+      </div>
+    </div>
+  
+    <div class="row mt-2 text-center">
+      <div class="col-lg-6 offset-lg-3 col-12">
+        <a
+          class="btn btn-primary"
+          href="https://edwinflz.github.io/projects/projects.html"
+          target="_blank"
+          >Más proyectos</a
+        >
+      </div>
+    </div>
+  </div>
+</ng-container>
+
