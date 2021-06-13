@@ -12,13 +12,15 @@ import { pokemonRootReducer } from '@pokemon/store/reducers';
 
 import { PokemonRoutingModule } from '@pokemon/pokemon-routing.module';
 import { PokemonContainer } from '@pokemon/container/pokemon.container';
+import { PaginationComponent } from '@pokemon/components/pagination/pagination.component';
+import { PlaceholderComponent } from '@pokemon/components/placeholder/placeholder.component';
 
 export const POKEMON_REDUCER_TOKEN = new InjectionToken<
   ActionReducerMap<PokemonState>
 >('Feature Pokemon Reducers');
 
 @NgModule({
-  declarations: [PokemonContainer],
+  declarations: [PokemonContainer, PaginationComponent, PlaceholderComponent],
   imports: [
     CommonModule,
     PokemonRoutingModule,

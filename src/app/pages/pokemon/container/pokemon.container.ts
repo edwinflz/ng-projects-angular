@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import {
   Pokemon,
   PokemonPayload,
-} from '@app/core/entities/pokemon.interface';
+  PokemonResult,
+} from '@core/entities/pokemon.interface';
 import { PokemonStore } from '@pokemon/pokemon.store';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon',
@@ -24,7 +26,20 @@ export class PokemonContainer implements OnInit {
     this.pokemonStore.fetchPokemons(this.paging);
   }
 
+  get pokemonLoading$(): Observable<boolean> {
+    return this.pokemonStore.pokemonLoading$;
+  }
+
+  get pokemonPaging$(): Observable<PokemonResult> {
+    return this.pokemonStore.pokemonPaging$;
+  }
+
   get pokemonList$(): Observable<Pokemon[]> {
     return this.pokemonStore.pokemons$;
+  }
+
+  public setPaging(offset: number): void {
+     this.paging = {...this.paging, offset};
+     this.pokemonStore.fetchPokemons(this.paging);
   }
 }

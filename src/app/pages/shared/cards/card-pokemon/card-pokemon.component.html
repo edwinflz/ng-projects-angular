@@ -1,6 +1,6 @@
 <div class="card-pokemon {{ type }}">
-  <div class="img-pokemon">
-    <app-image [url]="image" [rounded]="false" [type]="typeImage"></app-image>
+  <div class="img-pokemon" [class.transparent]="!isLoadImage">
+    <app-image [url]="image" [rounded]="false" [type]="typeImage" (sendloadImage)="changeLoadImage($event)"></app-image>
   </div>
   <div class="info-pokemon">
     <span class="number-pokemon">#{{ id }}</span>

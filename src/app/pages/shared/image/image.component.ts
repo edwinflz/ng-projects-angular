@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
 import { TypeImage } from '@core/entities/image.entities';
 import { IMAGE_NOT_FOUND } from '@core/constants/ux.constant';
 import { imageLazy } from '@shared/animations/image-lazy.animations';
@@ -20,6 +20,7 @@ export class ImageComponent  {
   @Input() rounded: boolean = true;
   @Input() url: string;
   @Input() type: string = '';
+  @Output() sendloadImage: EventEmitter<boolean> = new EventEmitter();
 
   public imageCtrl: string = HIDE;
   public contentCtrl: string = SHOW;
@@ -32,6 +33,7 @@ export class ImageComponent  {
     this.imageCtrl = SHOW;
     this.contentCtrl = HIDE;
     this.destroy = true;
+    this.sendloadImage.emit(true);
   }
 
   public errorHandler(): void {

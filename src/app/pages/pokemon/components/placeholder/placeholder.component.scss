@@ -1,0 +1,16 @@
+@use "abstracts/mixins" as mixin;
+@use "abstracts/breakpoints" as breakpoint;
+
+.column {
+  height: 276px;
+  width: 176px;
+  background-color: rgba(var(--white_rgb), 0.3);
+  border-radius: var(--border-radius-10);
+  @include mixin.placeholder-loading();
+}
+
+@media (max-width: breakpoint.$break-small-tablet) {
+  .column {
+    width: 100%;
+  }
+}

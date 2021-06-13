@@ -16,7 +16,16 @@ export class CardPokemonComponent {
   @Input() type: string;
 
   public typeImage: string = TypeImage.POKEMON;
+  public loadImage: boolean = false;
 
   constructor() { }
+
+  get isLoadImage(): boolean {
+    return this.loadImage;
+  }
+
+  public changeLoadImage(flag: boolean): void {
+    this.loadImage = flag;
+  }
 
 }

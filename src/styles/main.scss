@@ -8,7 +8,7 @@
 @use 'abstracts/mixins' as mixin;
 
 body {
-  @include mixin.scroll(false, 6px, var(--gray-12));
+  @include mixin.scroll(false, 6px, var(--red));
 }
 
 .table {

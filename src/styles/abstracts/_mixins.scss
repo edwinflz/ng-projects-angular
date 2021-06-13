@@ -80,7 +80,7 @@
   transition: $property $time $velocity;
 }
 
-@mixin scroll($horizontal: false, $size: 4px, $color: var(--orange-1)) {
+@mixin scroll($horizontal: false, $size: 4px, $color: var(--red)) {
   &::-webkit-scrollbar-track {
     border-radius: 20px;
     background-color: transparent;
@@ -118,9 +118,9 @@
   background: #f6f7f8;
   background: linear-gradient(
     to right,
-    var(--gray-13) 8%,
-    var(--gray-14) 18%,
-    var(--gray-13) 33%
+    var(--gray-5) 8%,
+    var(--gray-6) 18%,
+    var(--gray-5) 33%
   );
   background-size: 1000px 104px;
 }

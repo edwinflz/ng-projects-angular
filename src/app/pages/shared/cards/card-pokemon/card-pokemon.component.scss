@@ -13,6 +13,9 @@
     background-color: rgba(var(--white_rgb), 0.6);
     border-radius: 50%;
     text-align: center;
+    &.transparent {
+      background-color: transparent;
+    }
   }
   .info-pokemon {
     margin-top: 20px;

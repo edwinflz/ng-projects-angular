@@ -1,0 +1,36 @@
+<nav class="pagination-block" *ngIf="hasPaginator">
+  <ul class="pagination">
+    <li class="page-item" *ngIf="!isFirstPage" (click)="setPage(1)">
+      <a class="page-link arrow"> <<</a>
+    </li>
+    <li class="page-item" *ngIf="!isFirstPage" (click)="setPage(currentPage - 1)">
+      <a class="page-link arrow"> <</a>
+    </li>
+    <li
+      class="page-number"
+      *ngFor="let page of paginator.pages" 
+      (click)="setPage(page)">
+      <a class="page-link" [class.active]="currentPage === page">{{ page }}</a>
+    </li>
+    <li class="page-item" *ngIf="isGreaterThanLimit">
+      <a class="page-link spread" (click)="setPage(paginator.startPage + 5)">...</a>
+    </li>
+    <li class="page-number" *ngIf="isGreaterThanLimit" (click)="setPage(paginator.totalPages)">
+      <a class="page-link">{{ paginator.totalPages }}</a>
+    </li>
+    <li class="page-item" *ngIf="!isLastPage" (click)="setPage(currentPage + 1)">
+      <a class="page-link arrow">></a>
+    </li>
+    <li class="page-item" *ngIf="!isLastPage" (click)="setPage(paginator.totalPages)">
+      <a class="page-link arrow">>></a>
+    </li>
+  </ul>
+  <div class="row">
+    <div class="col-12 text-center">
+      <span class="info-results">
+        Resultados <strong>{{ totalResults }}</strong> -
+        <strong>{{ currentResults }}</strong>
+        de <strong>{{ totalRows }}</strong></span>
+    </div>
+  </div>
+</nav>
