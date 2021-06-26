@@ -5,6 +5,7 @@ export const environment = {
   production: true,
   defaultLocale: 'es',
   missingKey: false,
+  apiKey: 'fnPqT5xQEi5Vcb9wKwbCf65c3BjVGyBB',
   urlAssets: {
     project: `${ASSETS}/projects.json`
   },
