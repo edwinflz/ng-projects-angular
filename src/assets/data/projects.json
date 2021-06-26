@@ -17,7 +17,7 @@
     "title": "PokeDex Angular",
     "description": "La Pokédex es capaz, mediante su sistema de búsqueda, de clasificar a los Pokémon de diferentes formas!",
     "img": "assets/img/pokedex.jpg",
-    "url": "https://edwinflz.github.io/projects/projects.html",
+    "url": "https://ng-projects-aadf1.web.app/pokemons",
     "github": "https://github.com/edwinflz/ng-projects-angular"
   }
 ]
