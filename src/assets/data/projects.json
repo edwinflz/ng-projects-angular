@@ -14,9 +14,9 @@
     "github": "https://github.com/edwinflz/projects/tree/master/src/juego-javascript"
   },
   {
-    "title": "Apps Angular",
-    "description": "Apps en Angular aplicando conceptos, buenas prácticas, técnicas de performance y NGRX.",
-    "img": "assets/img/angular-aplicaciones.jpg",
+    "title": "PokeDex Angular",
+    "description": "La Pokédex es capaz, mediante su sistema de búsqueda, de clasificar a los Pokémon de diferentes formas!",
+    "img": "assets/img/pokedex.jpg",
     "url": "https://edwinflz.github.io/projects/projects.html",
     "github": "https://github.com/edwinflz/ng-projects-angular"
   }
