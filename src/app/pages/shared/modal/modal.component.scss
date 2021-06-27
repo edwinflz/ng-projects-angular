@@ -1,0 +1,77 @@
+@use "abstracts/mixins" as mixin;
+
+.wrapper-modal {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(var(--gray-1_rgb), 0.35);
+  height: 100vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+  z-index: 4;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  @include mixin.flex(center, center);
+}
+
+.content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: none;
+  background-color: var(--white-1);
+  height: fit-content;
+  border-radius: var(--border-radius-14);
+  margin: auto;
+  overflow-y: scroll;
+  max-height: 90vh;
+  @include mixin.animate();
+  @include mixin.transparent-scroll();
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+  &.white {
+    background-color: var(--white);
+  }
+  &.active {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+  &.fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+  }
+  .close-button {
+    display: block;
+    width: 34px;
+    height: 34px;
+    margin-left: auto;
+    margin-right: 5px;
+    margin-top: 5px;
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 50%;
+    line-height: 34px;
+    cursor: pointer;
+    @include mixin.general-box-shadow(0px,4px,10px,0px,var(--brown-1_rgb),0.1);
+    i {
+      display: inline-block;
+      font-size: var(--f-16);
+      font-weight: bold;
+      color: var(--gray-1);
+    }
+    &:hover {
+      background-color: var(--gray-1);
+      i {
+        color: var(--white);
+      }
+    }
+  }
+}

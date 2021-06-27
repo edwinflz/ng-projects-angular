@@ -26,6 +26,7 @@ export class ImageComponent  {
   public contentCtrl: string = SHOW;
   public destroy: boolean = false;
   public imgLoading: string = IMAGE_NOT_FOUND;
+  public imgError: boolean = false;
 
   constructor() { }
 
@@ -34,11 +35,12 @@ export class ImageComponent  {
     this.contentCtrl = HIDE;
     this.destroy = true;
     this.sendloadImage.emit(true);
+    this.imgError = false;
   }
 
   public errorHandler(): void {
     this.url = IMAGE_NOT_FOUND;
-    this.type = TypeImage.NOT_FOUND;
+    this.imgError = true;
   }
 
 }

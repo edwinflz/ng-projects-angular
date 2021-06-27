@@ -1,4 +1,4 @@
-<div class="card-pokemon {{ type }}">
+<div class="card-pokemon {{ type }}" (click)="sendPokemon(id)">
   <div class="img-pokemon" [class.transparent]="!isLoadImage">
     <app-image [url]="image" [rounded]="false" [type]="typeImage" (sendloadImage)="changeLoadImage($event)"></app-image>
   </div>

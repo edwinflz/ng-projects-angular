@@ -7,6 +7,13 @@
   background-color: rgba(var(--white_rgb), 0.3);
   border-radius: var(--border-radius-10);
   @include mixin.placeholder-loading();
+  &.first {
+    height: 50px;
+    width: 100%;
+  }
+  &.last {
+    width: 100%;
+  }
 }
 
 @media (max-width: breakpoint.$break-small-tablet) {

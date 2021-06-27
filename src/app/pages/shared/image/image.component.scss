@@ -1,8 +1,15 @@
-img {
+.img-fluid {
   max-width: 100%;
   &.pokemon {
-    margin-top: 20px;
     height: 130px;
+    &.error {
+      height: auto;
+    }
+  }
+  &.pokemon-detail {
+    height: 155px;
+    &.error {
+      height: 100px;
+    }
   }
 }
-

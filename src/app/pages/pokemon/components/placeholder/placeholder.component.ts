@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-placeholder',
@@ -7,5 +7,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaceholderComponent {
+
+  @Input() type: number = 1;
+
   constructor() {}
+
+  get isTypeDefault(): boolean {
+    return this.type === 1;
+  }
 }

@@ -45,7 +45,7 @@ export class PokemonEffects {
       ofType(fetchPokemonByUrlDataAction),
       switchMap(({ payload }) => {
         return forkJoin(
-          payload.map(url => this.pokemonService.getPokemonById(url))
+          payload.map(url => this.pokemonService.getPokemonByUrl(url))
         );
       }),
       map((response) => loadListPokemonDataSuccess({pokemons: response})),
@@ -60,9 +60,6 @@ export class PokemonEffects {
       ofType(fetchPokemonByIdDataAction),
       switchMap(({ payload }) => this.pokemonService.getPokemonById(payload)),
       map((response) => loadPokemonDataSuccess({ pokemon: response })),
-      catchError(() => {
-        return EMPTY;
-      })
     )
   );
 }

@@ -10,7 +10,7 @@ export type PokemonResult = Readonly<{
   results: PropertyGeneric[];
 }>;
 
-export type Pokemon = Readonly <{
+export type Pokemon = Readonly<{
   id: number;
   name: string;
   order: number;
@@ -105,3 +105,80 @@ export interface PastYypes {
   generation: PropertyGeneric;
   types: PokemonType[];
 }
+
+export enum PokemonColorType {
+  grass = 'grass',
+  electric = 'electric',
+  water = 'water',
+  ground = 'ground',
+  rock = 'rock',
+  fairy = 'fairy',
+  poison = 'poison',
+  bug = 'bug',
+  dragon = 'dragon',
+  psychic = 'psychic',
+  flying = 'flying',
+  fighting = 'fighting',
+  fire = 'fire',
+  normal = 'normal',
+}
+
+export const POKEMON_COLOR = [
+  {
+    type: PokemonColorType.grass,
+    color: '#defde0',
+  },
+  {
+    type: PokemonColorType.electric,
+    color: '#fcf7de',
+  },
+  {
+    type: PokemonColorType.water,
+    color: '#def3fd',
+  },
+  {
+    type: PokemonColorType.ground,
+    color: '#f4e7da',
+  },
+  {
+    type: PokemonColorType.rock,
+    color: '#d5d5d4',
+  },
+  {
+    type: PokemonColorType.fairy,
+    color: '#fceaff',
+  },
+  {
+    type: PokemonColorType.poison,
+    color: '#98d7a5',
+  },
+  {
+    type: PokemonColorType.bug,
+    color: '#f8d5a3',
+  },
+  {
+    type: PokemonColorType.dragon,
+    color: '#97b3e6',
+  },
+  {
+    type: PokemonColorType.psychic,
+    color: '#eaeda1',
+  },
+  {
+    type: PokemonColorType.flying,
+    color: '#f5f5f5',
+  },
+  {
+    type: PokemonColorType.fighting,
+    color: '#e6e0d4',
+  },
+  {
+    type: PokemonColorType.fire,
+    color: '#fddfdf',
+  },
+  {
+    type: PokemonColorType.normal,
+    color: '#f5f5f5',
+  },
+];
+

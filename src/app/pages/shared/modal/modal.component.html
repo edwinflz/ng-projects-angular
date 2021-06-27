@@ -1,0 +1,13 @@
+<div class="wrapper-modal" [class.active]="showModal" (click)="toggleModal()"></div>
+
+<div
+  class="content {{ classType }}"
+  [class.fadeOut]="fadeOut"
+  [ngStyle]="{ width: widthPx }"
+  [class.active]="showModal"
+>
+  <span class="close-button" (click)="toggleModal()">
+    <i class="bx bx-x-circle"></i>
+  </span>
+  <ng-content *ngIf="isActive" select="[content]"></ng-content>
+</div>

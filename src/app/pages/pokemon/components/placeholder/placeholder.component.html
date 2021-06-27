@@ -1,9 +1,19 @@
 <div class="container pb-5">
   <div class="row mt-4">
-    <div
-      class="col-lg-2 col-md-2 col-12 pb-2 mb-2"
-      *ngFor="let i of [].constructor(20)">
-      <div class="column"></div>
-    </div>
+    <ng-container *ngIf="isTypeDefault; else doubleRow">
+      <div
+        class="col-lg-2 col-md-2 col-12 pb-2 mb-2"
+        *ngFor="let i of [].constructor(20)">
+        <div class="column"></div>
+      </div>
+    </ng-container>
+
+    <ng-template #doubleRow>
+      <div
+        class="col-lg-12 col-md-12 col-12 pb-2 mb-2"
+        *ngFor="let i of [].constructor(2); let first = first; let last = last">
+        <div class="column" [class.first]="first" [class.last]="last"></div>
+      </div>
+    </ng-template>
   </div>
 </div>

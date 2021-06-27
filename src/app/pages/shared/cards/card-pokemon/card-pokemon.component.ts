@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 import { TypeImage } from '@core/entities/image.entities';
 
@@ -10,15 +16,16 @@ import { TypeImage } from '@core/entities/image.entities';
 })
 export class CardPokemonComponent {
 
-  @Input() id: number;
+  @Input() id: string;
   @Input() name: string;
   @Input() image: string;
   @Input() type: string;
+  @Output() searchPokemon: EventEmitter<string> = new EventEmitter<string>();
 
   public typeImage: string = TypeImage.POKEMON;
   public loadImage: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
   get isLoadImage(): boolean {
     return this.loadImage;
@@ -28,4 +35,7 @@ export class CardPokemonComponent {
     this.loadImage = flag;
   }
 
+  public sendPokemon(pokemonId: string): void {
+    this.searchPokemon.emit(pokemonId);
+  }
 }

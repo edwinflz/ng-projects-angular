@@ -25,7 +25,14 @@ export class PokemonService {
     return this.http.get<PokemonResult>(url);
   }
 
-  public getPokemonById(url: string): Observable<Pokemon> {
+  public getPokemonByUrl(url: string): Observable<Pokemon> {
+    return this.http.get<Pokemon>(url);
+  }
+
+  public getPokemonById(pokemonId: string): Observable<Pokemon> {
+    const url = urlTemplate.parse(ENV.pokeApi.pokemon).expand({
+      pokeId: pokemonId
+    });
     return this.http.get<Pokemon>(url);
   }
 }

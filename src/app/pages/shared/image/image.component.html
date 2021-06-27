@@ -1,12 +1,13 @@
 <div class="content-loading" [@imageAnimation]="contentCtrl">
   <div class="thumb-overlay" *ngIf="!destroy">
-    <img [src]="imgLoading" class="rounded-circle" />
+    <img [src]="imgLoading" class="rounded-circle img-fluid" />
   </div>
 </div>
 
 <img
   loading="lazy"
   class="img-fluid {{ type }}"
+  [class.error]="imgError"
   [class.rounded-circle]="rounded"
   [src]="url"
   (load)="loadImage()"

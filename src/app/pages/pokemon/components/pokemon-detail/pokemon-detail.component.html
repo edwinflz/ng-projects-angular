@@ -1,0 +1,58 @@
+<ng-container *ngIf="!loadingPokemon; else placeholderDetail">
+  <div class="pokemon-detail">
+    <div class="pokemon-actions">
+      <div class="action-left" (click)="changeImage()">
+        <i class="bx bx-caret-left-square"></i>
+      </div>
+      <div
+        class="action-default"
+        [class.cursor-none]="!hasDefault"
+        [class.active]="default"
+        (click)="resetImage(false)">
+        Defecto
+      </div>
+      <div
+        class="action-shiny"
+        [class.cursor-none]="!hasShiny"
+        [class.active]="!default"
+        (click)="resetImage(true)">
+        Brillante
+      </div>
+      <div class="action-right" (click)="changeImage()">
+        <i class="bx bx-caret-right-square"></i>
+      </div>
+    </div>
+
+    <div class="pokemon-body">
+      <div class="pokemon-title">
+        <div class="pokemon-name">{{ pokemon.name }} #{{ pokemon.id }}</div>
+        <div class="pokemon-status">
+          <span>Peso: {{ pokemon.weight }} -</span>
+          <span>Altura: {{ pokemon.height }}</span>
+        </div>
+      </div>
+      <div class="pokemon-image">
+        <app-image [url]="url" [type]="typeImage"></app-image>
+      </div>
+      <div class="pokemon-type">
+        <span *ngFor="let type of pokemonTypes" [ngStyle]="type.style">
+          {{ type.name }}
+        </span>
+      </div>
+    </div>
+
+    <div class="pokemon-stats">
+      <canvas
+        baseChart
+        [datasets]="radarChartData"
+        [options]="radarChartOptions"
+        [labels]="radarChartLabels"
+        [chartType]="radarChartType">
+      </canvas>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #placeholderDetail>
+  <app-placeholder [type]="2"></app-placeholder>
+</ng-template>

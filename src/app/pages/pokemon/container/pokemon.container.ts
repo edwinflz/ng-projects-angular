@@ -19,6 +19,7 @@ export class PokemonContainer implements OnInit {
     offset: 0,
     limit: 20,
   };
+  public openPokemon: boolean = false;
 
   constructor(private pokemonStore: PokemonStore) {}
 
@@ -30,6 +31,10 @@ export class PokemonContainer implements OnInit {
     return this.pokemonStore.pokemonLoading$;
   }
 
+  get pokemonByIdLoading$(): Observable<boolean> {
+    return this.pokemonStore.pokemonLoading$;
+  }
+
   get pokemonPaging$(): Observable<PokemonResult> {
     return this.pokemonStore.pokemonPaging$;
   }
@@ -38,8 +43,21 @@ export class PokemonContainer implements OnInit {
     return this.pokemonStore.pokemons$;
   }
 
+  get pokemon$(): Observable<Pokemon> {
+    return this.pokemonStore.pokemon$;
+  }
+
   public setPaging(offset: number): void {
-     this.paging = {...this.paging, offset};
-     this.pokemonStore.fetchPokemons(this.paging);
+    this.paging = { ...this.paging, offset };
+    this.pokemonStore.fetchPokemons(this.paging);
+  }
+
+  public closeModalPokemon(event: boolean): void {
+    this.openPokemon = event;
+  }
+
+  public searchPokemonById(pokemonId: string): void {
+    this.pokemonStore.fetchPokemonById(pokemonId);
+    this.openPokemon = true;
   }
 }

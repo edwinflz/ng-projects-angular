@@ -40,6 +40,11 @@ export class PokemonStore {
     map((state) => state.pokemonLoading)
   );
 
+  public pokemonByIdLoading$: Observable<boolean> = this.store.pipe(
+    select(pokemonRootSelector),
+    map((state) => state.pokemonByIdLoading)
+  );
+
   public fetchPokemons(payload: PokemonPayload): void {
     this.store.dispatch(fetchPokemonDataAction({ payload }));
   }
