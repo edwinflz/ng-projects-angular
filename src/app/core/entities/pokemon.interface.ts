@@ -182,3 +182,12 @@ export const POKEMON_COLOR = [
   },
 ];
 
+export const POKEMON_STATS = [
+  'hp',
+  'attack',
+  'defense',
+  'special attack',
+  'special defense',
+  'speed',
+];
+

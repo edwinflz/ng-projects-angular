@@ -77,6 +77,7 @@ export class PaginationComponent implements OnInit, OnChanges {
   public setPage(page: number): void {
     if (page < 1 || page > this.paginator.totalPages || this.blockPaging) return;
     this.domManipulateService.restoreScroll();
+    this.currentPage = page;
     this.paginator = this.paginationService.buildPage(this.totalRows, page, this.rowsPerPage);
     this.emitOffset.emit(this.paginationService.getOffSet);
   }

@@ -1,0 +1,16 @@
+<div class="wrapper-swipe-up" [class.active]="isActive">
+  <div
+    class="wrapper-background"
+    [class.fadeOut]="fadeOut"
+    (click)="toggleModal()">
+  </div>
+  <div
+    class="content {{ classType }}"
+    [class.active]="isActive"
+    [ngStyle]="{ 'max-height': heightVh, 'overflow-y': overflowY }">
+    <span class="close-button" (click)="toggleModal()">
+      <i class="bx bx-x-circle"></i>
+    </span>
+    <ng-content *ngIf="showSwipeUp" select="[content]"></ng-content>
+  </div>
+</div>

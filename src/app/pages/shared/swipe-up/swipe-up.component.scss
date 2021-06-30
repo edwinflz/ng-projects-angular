@@ -1,0 +1,81 @@
+@use "abstracts/mixins" as mixin;
+@use "base/animations";
+
+.wrapper-swipe-up {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  height: 0vh;
+  width: 100vw;
+  position: fixed;
+  .content {
+    display: none;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    background-color: var(--white-1);
+    animation: slideOutBottom 0.3s forwards;
+    border-radius: var(--border-radius-14) var(--border-radius-14) 0 0;
+    &.active {
+      display: block;
+      overflow-y: auto;
+    }
+  }
+  &.active {
+    .content {
+      animation: slideInBottom 0.3s forwards;
+    }
+  }
+  .close-button {
+    display: block;
+    width: 34px;
+    height: 34px;
+    margin-left: auto;
+    margin-right: 5px;
+    margin-top: 5px;
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 50%;
+    line-height: 34px;
+    cursor: pointer;
+    @include mixin.general-box-shadow(
+      0px,
+      4px,
+      10px,
+      0px,
+      var(--brown-1_rgb),
+      0.1
+    );
+    i {
+      display: inline-block;
+      font-size: var(--f-16);
+      font-weight: bold;
+      color: var(--gray-1);
+    }
+    &:hover {
+      background-color: var(--gray-1);
+      i {
+        color: var(--white);
+      }
+    }
+  }
+}
+
+.wrapper-background {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(var(--gray-1_rgb), 0.35);
+  height: 100vh;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+  &.fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+  }
+}

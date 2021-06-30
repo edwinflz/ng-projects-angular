@@ -1,42 +1,65 @@
 <div class="container mt-4 mb-4">
-  <ng-container *ngIf="!(pokemonLoading$ | async); else placeHolder">
-    <div class="row">
-      <div class="col-lg-2" *ngFor="let pokemon of (pokemonList$ | async)">
+  <ng-container>
+    <div 
+      class="row"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50"
+      [infiniteScrollDisabled]="!(isMobile$ | async)"
+      (scrolled)="scrollResults()">
+      <div class="col-lg-2 col-6" *ngFor="let pokemon of (pokemonList$ | async)">
         <app-card-pokemon
           [id]="pokemon.id"
           [name]="pokemon.name"
           [type]="pokemon.types[0].type.name"
           [image]="pokemon.sprites.other.dream_world.front_default || pokemon.sprites.front_default"
-          (searchPokemon)="searchPokemonById($event)"
-        ></app-card-pokemon>
+          (searchPokemon)="searchPokemonById($event)">
+        </app-card-pokemon>
       </div>
     </div>
 
-    <div class="row mt-4">
+    <div class="row mt-4" *ngIf="!(isMobile$ | async)">
       <div class="col-lg-12">
         <app-pagination
           [totalRows]="(pokemonPaging$ | async).count"
           [rowsPerPage]="paging.limit"
-          (emitOffset)="setPaging($event)"
-        ></app-pagination>
+          (emitOffset)="setPaging($event)">
+        </app-pagination>
       </div>
     </div>
   </ng-container>
 
   <ng-template #placeHolder>
-    <app-placeholder [type]="1"></app-placeholder>
+    <app-placeholder [type]="1" [isMobile]="isMobile$ | async"></app-placeholder>
   </ng-template>
 </div>
 
-<app-modal
-  [width]="640"
-  [classType]="'white'"
-  [isActive]="openPokemon"
-  (closeModal)="closeModalPokemon($event)">
-  <ng-container content>
-    <app-pokemon-detail 
-      [loadingPokemon]="pokemonByIdLoading$ | async"
-      [pokemon]="pokemon$ | async"
-    ></app-pokemon-detail>
-  </ng-container>
-</app-modal>
+<ng-container *ngIf="!(isMobile$ | async); else isMobile">
+  <app-modal
+    [width]="640"
+    [classType]="'white'"
+    [isActive]="openPokemon"
+    (closeModal)="closeModalPokemon($event)">
+    <ng-container content>
+      <ng-container *ngTemplateOutlet="detailPokemon"></ng-container>
+    </ng-container>
+  </app-modal>
+</ng-container>
+
+<ng-template #isMobile>
+  <app-swipe-up
+    [height]="95"
+    (toggleShowSwipeUp)="closeModalPokemon($event)"
+    [showSwipeUp]="openPokemon">
+    <ng-container content>
+      <ng-container *ngTemplateOutlet="detailPokemon"></ng-container>
+    </ng-container>
+  </app-swipe-up>
+</ng-template>
+
+<ng-template #detailPokemon>
+  <app-pokemon-detail
+    [loadingPokemon]="pokemonByIdLoading$ | async"
+    [pokemon]="pokemon$ | async">
+  </app-pokemon-detail>
+</ng-template>

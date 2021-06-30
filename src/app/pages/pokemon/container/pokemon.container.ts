@@ -7,6 +7,8 @@ import {
   PokemonResult,
 } from '@core/entities/pokemon.interface';
 import { PokemonStore } from '@pokemon/pokemon.store';
+import { MobileService } from '@core/services/mobile.service';
+import { PaginationService } from '@core/services/pagination.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -21,7 +23,11 @@ export class PokemonContainer implements OnInit {
   };
   public openPokemon: boolean = false;
 
-  constructor(private pokemonStore: PokemonStore) {}
+  constructor(
+    private pokemonStore: PokemonStore,
+    private mobileDeviceService: MobileService,
+    private paginationService: PaginationService
+  ) {}
 
   ngOnInit(): void {
     this.pokemonStore.fetchPokemons(this.paging);
@@ -47,6 +53,14 @@ export class PokemonContainer implements OnInit {
     return this.pokemonStore.pokemon$;
   }
 
+  get isMobile$(): Observable<boolean> {
+    return this.mobileDeviceService.isMobileDevice$;
+  }
+
+  get currentPage(): number {
+    return this.paginationService.getCurrentPage;
+  }
+
   public setPaging(offset: number): void {
     this.paging = { ...this.paging, offset };
     this.pokemonStore.fetchPokemons(this.paging);
@@ -59,5 +73,15 @@ export class PokemonContainer implements OnInit {
   public searchPokemonById(pokemonId: string): void {
     this.pokemonStore.fetchPokemonById(pokemonId);
     this.openPokemon = true;
+  }
+
+  public scrollResults(): void {
+    this.pokemonPaging$.subscribe((paging) => {
+      if (!!paging && paging.count) {
+        const page = this.currentPage + 1;
+        this.paginationService.buildPage(paging.count, page, this.paging.limit);
+        this.setPaging(this.paginationService.getOffSet);
+      }
+    }).unsubscribe();
   }
 }

@@ -17,7 +17,7 @@ export class PaginationService {
 
   get getOffSet(): number {
     return this.offSet;
-}
+  }
 
   public buildPage(
     totalItems: number,
@@ -50,6 +50,8 @@ export class PaginationService {
         }
       }
     }
+
+    if (currentPage === endPage || currentPage > endPage) this.currentPage = endPage;
 
     // calculate property offset
     this.offSet = (currentPage - 1) * pageSize;

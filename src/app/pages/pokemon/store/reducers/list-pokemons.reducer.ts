@@ -7,8 +7,8 @@ export const initialState: Pokemon[] = [];
 
 const featureReducer = createReducer(
   initialState,
-  on(loadListPokemonDataSuccess, (state, { pokemons }) => {
-    return pokemons;
+  on(loadListPokemonDataSuccess, (state, { pokemons, isMobile }) => {
+    return  isMobile ? state.concat(pokemons) : pokemons;
   })
 );
 

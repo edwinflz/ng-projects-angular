@@ -1,7 +1,6 @@
-import { ThrowStmt } from '@angular/compiler';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TypeImage } from '@app/core/entities/image.entities';
-import { Pokemon, POKEMON_COLOR } from '@core/entities/pokemon.interface';
+import { Pokemon, POKEMON_COLOR, POKEMON_STATS } from '@core/entities/pokemon.interface';
 import { ChartDataSets, ChartType, RadialChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 
@@ -42,14 +41,7 @@ export class PokemonDetailComponent {
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
   };
-  public radarChartLabels: Label[] = [
-    'hp',
-    'attack',
-    'defense',
-    'special attack',
-    'special defense',
-    'speed',
-  ];
+  public radarChartLabels: Label[] = POKEMON_STATS;
 
   public radarChartData: ChartDataSets[] = [{ data: [], label: '' }];
   public radarChartType: ChartType = 'radar';

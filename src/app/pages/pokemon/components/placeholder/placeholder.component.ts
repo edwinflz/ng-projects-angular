@@ -9,6 +9,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class PlaceholderComponent {
 
   @Input() type: number = 1;
+  @Input() isMobile: boolean;
 
   constructor() {}
 
